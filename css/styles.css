@@ -1,11 +1,3 @@
-.html{ box-sizing:border-box;}
-*,*::before,*::after{box-sizing: border-box;}
-
-body {
-    font-family: 'Roboto', sans-serif;
-   margin: 0;
-    color: var(--main-text-color)
-}
 :root {
     --main-title-color: #ffffff;
     --extra-title-color:#f4f4fd ;   
@@ -18,6 +10,14 @@ body {
     --footer-link-color: #31D0AA;
   --border-color:  #8E8F99 ;
 }
+
+*,*::before,*::after{box-sizing: border-box;}
+ul{padding: 0;margin: 0;}
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--main-text-color)
+}
+
 .container{ 
 
 width: 1158px;
@@ -55,15 +55,17 @@ margin-right: auto;
     line-height: 1.5;
     letter-spacing: 0.02em;
     color:var(--main-text-color);
-  
+ 
 }
 .img-portfolio{display:block}
 
 .link:is( :active) {
     color: var(--main-background-color)
 }
-/* title */
 
+/* title */
+.link-shadow:hover{box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08); display: block;}
 .logo {
     font-weight: 800;
     font-family: 'Raleway', sans-serif;
@@ -186,7 +188,10 @@ li{ list-style-type: none;}
     border: 1px solid var(--minor-colour); 
 }
 .hero-list{display: flex;justify-content: center;padding-left: 0; margin-bottom: 72px;margin-top: 0;}
-.hero-list .hero-button-list:hover{color: var(--main-title-color );background-color: var(--main-background-color);}
+.hero-list .hero-button-list:hover{color: var(--main-title-color );background-color: var(--main-background-color);
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);border-color:var(--main-background-color) ;}
+
 .hero-list .hero-button-list:focus{color: var(--main-title-color);background-color: var(--main-background-color);}
 .hero-btn{margin-right: 24px;}
 .hero-list :last-child{margin-right: 0px;}
@@ -232,9 +237,8 @@ h1, h2,h3, h4, p {margin-top: 0;
     background-color: var(--second-title-color);
     padding-top:188px ;padding-bottom: 188px;
     max-width:1440px ; height:600px ;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);background: rgba(46, 47, 66, 0.7);
-    border: 1px solid #000000;
-    background-image: linear-gradient(to right, rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/people-office\ 1\ \(1\).svg);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+    background-image: linear-gradient(to right, rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/people-office\ 1.jpg);
 margin-right: auto; margin-left: auto;
 border: 1px solid #000000; 
 background-position: center; background-size: cover;
@@ -251,21 +255,26 @@ background-color: var(--extra-title-color);}
 .team-item-container{padding-top: 32px;padding-bottom: 32px; 
     background-color:var(--main-title-color) ;text-align: center;}
 .solutions-item{flex-basis: calc((100% - 72px) / 4);}
-.solutions-item::before{
-    display: block;
+
+
+
+.solution-container{
+    display: flex;
      content: '';
      height: 112px;
      background-color: var(--extra-title-color);
       background-repeat: no-repeat;
       background-size: contain;
       margin-bottom: 8px;
-    background-position: center;}
- .item-strategy::before {background-image:url(../images/antenna\ 2.svg) ;background-size: 64px;}
-.item-punctuality::before{background-image:url(../images/clock\ 2.svg) ;background-size: 64px;}
-.item-diligence::before{background-image: url(../images/diagram\ 2.svg);background-size: 64px;}
-.item-technologies::before{background-image:url(../images/astronaut\ 2.svg) ; background-size: 64px;}
-
-
+    background-position: center;align-items: center;justify-content: center;}
+.solution-link-container{  display: block;
+    content: '';
+    height: 112px;
+    background-color: var(--extra-title-color);
+     background-repeat: no-repeat;
+     background-size: contain;
+   background-position: center;}
+ 
 /*  solution */
 
 .doing-list{display: flex;flex-wrap: wrap;padding-left: 0;margin: 0;
@@ -381,13 +390,13 @@ line-height: 1.5;
    
     .footer-links:hover{background-color: var(--footer-link-color);opacity: 1;}
     .footer-links:focus{background-color: var(--footer-link-color);opacity: 1;}
-  .text-links{ width: 40px;height: 40px;
+  .text-links{ width: 100%;height: 100%;
     display:flex ; 
     border-radius: 50%;
     align-items: center;
     justify-content: center;
+    background: var(--extra-background-color);;
      }
-    .text-links:hover{background-color: var(--main-background-color);}
     .text-links:hover{background-color: var(--main-background-color);}
  .footer-links:not(:last-child){margin-right: 16px;}
  
@@ -404,27 +413,23 @@ line-height: 1.5;
     .footer-list{display: flex;
         justify-content: center;
         gap: 16px;
-        padding-left: 0;
     }
-    .container-main{align-items: center;display: flex;}
+    .container-main{display: flex;}
     .section-five-text{text-align: center;margin-bottom: 72px;font-weight: 700;font-size: 36px;
         line-height: 1.1;color: var(--second-title-color);
         font-style: normal;letter-spacing: 0.02em;}
 /* color */
 
 
-.team-list-icon{   display: flex;box-sizing: border-box;
-        width: 40px;height: 40px;
-        border-radius: 50%;
-      background: var(--extra-background-color);;content: "";
-        display:inline-block ;
-          background-position: center;background-repeat: no-repeat; }
+.team-list-icon{   
+        width: 40px;
+        height: 40px;
+          }
         
-.team-list-icon:hover{background-color: var(--main-background-color);}
-  .team-list-icon:focus{background-color: var(--main-background-color);}
+
          .footer-links:not(:last-child){margin-right: 16px;}
-    .team-list-icons{ align-items: center;
-        display: flex; padding-left: 16px;padding-right: 16px;gap: 24px;}
+    .team-list-icons{ justify-content: center;
+        display: flex; gap: 24px;}
   
      
       .section-five-list{ display: flex;gap:24px;justify-content: center;padding: 0;}
@@ -435,7 +440,7 @@ border:1px solid var(--border-color); color: var(--border-color);
 
 .section-five-link:hover{border-color: var(--main-background-color);color:var(--main-background-color);}
 .section-five-link:focus{border-color: var(--main-background-color);color:var(--main-background-color);}
-.section-five-svg{width: 168px; height: 88px;}
+.section-five-svg{width: calc((100% - 120px) / 6); height: 88px;}
 
 .customers-section{padding-top: 120px;padding-bottom: 120px;}
 /* <ul class="customer-list list">
